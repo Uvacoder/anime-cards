@@ -10,11 +10,11 @@ const Home: NextPage = (props: any) => {
     const ep = data.episodes;
 
     return (
-      <div key={data.mal_id} className="flex p-2">
-        <div className="w-1/3 mr-2">
-          <img src={image} />
+      <div key={data.mal_id} className="grid grid-cols-3 p-2 border hover:bg-gray-200 hover:cursor-pointer">
+        <div className="mr-2">
+          <img src={image} style={{ width: '50px', height: '75px' }} />
         </div>
-        <div>
+        <div className="col-span-2">
           <p className="text-xs">{title}</p>
           <p className="text-xs">Year: {year}</p>
           <p className="text-xs">Episodes: {ep}</p>
@@ -33,7 +33,7 @@ const Home: NextPage = (props: any) => {
 
       <main className="container mx-auto flex flex-col items-center justify-center min-h-screen">
         <h1 className="font-mono text-black-900 text-center text-5xl font-extrabold">WEEB-IO</h1>
-        <div>
+        <div className="p-10">
           <form>
             <div className="flex">
               <input type="text" id="search" name="search" className="border-2 border-gray-300 bg-white h-8 px-5 pr-16 rounded text-sm focus:outline-none mr-1" />
@@ -42,7 +42,7 @@ const Home: NextPage = (props: any) => {
           </form>
         </div>
 
-        <div className="gap-4" />
+        <div className="pb-10" />
 
         <div className="flex gap-4 mt-5">
 
