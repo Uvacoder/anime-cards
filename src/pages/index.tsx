@@ -2,6 +2,12 @@ import type { NextPage } from "next";
 import Head from "next/head";
 
 const Home: NextPage = () => {
+
+  const onSearch = (value: any) => {
+    value.preventDefault();  
+    console.log(value)
+    console.log(value.target.name.value);
+  };
   return (
     <>
       <Head>
@@ -10,8 +16,184 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto flex flex-col items-center justify-center min-h-screen p-4">
+      <main className="container mx-auto flex flex-col items-center justify-center min-h-screen">
         <h1 className="font-mono text-black-900 text-center text-5xl font-extrabold">WEEB-IO</h1>
+        <div>
+        <form onSubmit={onSearch}>
+          <div className="flex">
+            <input type="text" id="search" name="search" className="border-2 border-gray-300 bg-white h-8 px-5 pr-16 rounded text-sm focus:outline-none mr-1" />
+            <button type="submit" className="bg-blue-500 hover:bg-blue-700 font-bold text-white py-1 px-2 rounded">Submit</button>
+          </div>
+        </form>
+        </div>
+
+        <div className="gap-4" />
+
+        <div className="flex gap-4 mt-5">
+          <div className="bg-red-400 w-48 text-center">
+            <h1>Trending Anime</h1>
+
+            <div className="flex bg-orange-400 p-2">
+              <div className="bg-blue-400 w-1/3 mr-2">
+                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
+              </div>
+              <div className="bg-white-400">
+                <p className="">Cowboy Bebop</p>
+                <p className="text-xs">カウボーイビバップ</p>
+              </div>
+            </div>
+
+            <div className="flex bg-orange-400 p-2">
+              <div className="bg-blue-400 w-1/3 mr-2">
+                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
+              </div>
+              <div className="bg-white-400">
+                <p className="">Cowboy Bebop</p>
+                <p className="text-xs">カウボーイビバップ</p>
+              </div>
+            </div>
+
+            <div className="flex bg-orange-400 p-2">
+              <div className="bg-blue-400 w-1/3 mr-2">
+                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
+              </div>
+              <div className="bg-white-400">
+                <p className="">Cowboy Bebop</p>
+                <p className="text-xs">カウボーイビバップ</p>
+              </div>
+            </div>
+            
+            <div className="flex bg-orange-400 p-2">
+              <div className="bg-blue-400 w-1/3 mr-2">
+                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
+              </div>
+              <div className="bg-white-400">
+                <p className="">Cowboy Bebop</p>
+                <p className="text-xs">カウボーイビバップ</p>
+              </div>
+            </div>
+
+            <div className="flex bg-orange-400 p-2">
+              <div className="bg-blue-400 w-1/3 mr-2">
+                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
+              </div>
+              <div className="bg-white-400">
+                <p className="">Cowboy Bebop</p>
+                <p className="text-xs">カウボーイビバップ</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-yellow-400 w-48 text-center">
+            <h1>Trending Upcoming Anime</h1>
+
+            <div className="flex bg-orange-400 p-2">
+              <div className="bg-blue-400 w-1/3 mr-2">
+                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
+              </div>
+              <div className="bg-white-400">
+                <p className="">Cowboy Bebop</p>
+                <p className="text-xs">カウボーイビバップ</p>
+              </div>
+            </div>
+
+            <div className="flex bg-orange-400 p-2">
+              <div className="bg-blue-400 w-1/3 mr-2">
+                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
+              </div>
+              <div className="bg-white-400">
+                <p className="">Cowboy Bebop</p>
+                <p className="text-xs">カウボーイビバップ</p>
+              </div>
+            </div>
+
+            <div className="flex bg-orange-400 p-2">
+              <div className="bg-blue-400 w-1/3 mr-2">
+                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
+              </div>
+              <div className="bg-white-400">
+                <p className="">Cowboy Bebop</p>
+                <p className="text-xs">カウボーイビバップ</p>
+              </div>
+            </div>
+            
+            <div className="flex bg-orange-400 p-2">
+              <div className="bg-blue-400 w-1/3 mr-2">
+                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
+              </div>
+              <div className="bg-white-400">
+                <p className="">Cowboy Bebop</p>
+                <p className="text-xs">カウボーイビバップ</p>
+              </div>
+            </div>
+
+            <div className="flex bg-orange-400 p-2">
+              <div className="bg-blue-400 w-1/3 mr-2">
+                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
+              </div>
+              <div className="bg-white-400">
+                <p className="">Cowboy Bebop</p>
+                <p className="text-xs">カウボーイビバップ</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-blue-400 w-48 text-center">
+            <h1>
+              Top Anime
+            </h1>
+
+            <div className="flex bg-orange-400 p-2">
+              <div className="bg-blue-400 w-1/3 mr-2">
+                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
+              </div>
+              <div className="bg-white-400">
+                <p className="">Cowboy Bebop</p>
+                <p className="text-xs">カウボーイビバップ</p>
+              </div>
+            </div>
+
+            <div className="flex bg-orange-400 p-2">
+              <div className="bg-blue-400 w-1/3 mr-2">
+                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
+              </div>
+              <div className="bg-white-400">
+                <p className="">Cowboy Bebop</p>
+                <p className="text-xs">カウボーイビバップ</p>
+              </div>
+            </div>
+
+            <div className="flex bg-orange-400 p-2">
+              <div className="bg-blue-400 w-1/3 mr-2">
+                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
+              </div>
+              <div className="bg-white-400">
+                <p className="">Cowboy Bebop</p>
+                <p className="text-xs">カウボーイビバップ</p>
+              </div>
+            </div>
+            
+            <div className="flex bg-orange-400 p-2">
+              <div className="bg-blue-400 w-1/3 mr-2">
+                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
+              </div>
+              <div className="bg-white-400">
+                <p className="">Cowboy Bebop</p>
+                <p className="text-xs">カウボーイビバップ</p>
+              </div>
+            </div>
+
+            <div className="flex bg-orange-400 p-2">
+              <div className="bg-blue-400 w-1/3 mr-2">
+                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
+              </div>
+              <div className="bg-white-400">
+                <p className="">Cowboy Bebop</p>
+                <p className="text-xs">カウボーイビバップ</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </main>
     </>
   );
