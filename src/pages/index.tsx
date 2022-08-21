@@ -1,13 +1,39 @@
 import type { NextPage } from "next";
+import { getImageSize } from "next/dist/server/image-optimizer";
 import Head from "next/head";
 
-const Home: NextPage = () => {
+const Home: NextPage = (props: any) => {
+  console.log(props.topAnime);
 
   const onSearch = (value: any) => {
     value.preventDefault();  
     console.log(value)
     console.log(value.target.name.value);
   };
+
+  const animeCardMapper = (data: any) => {
+    const title = data.title;
+    const japaneseTitle = data.title_japanese;
+    const image = data.images.jpg.small_image_url;
+    const year = data.year;
+    const ep = data.episodes;
+    
+  return (
+    <div className="flex bg-orange-400 p-2">
+      <div className="bg-blue-400 w-1/3 mr-2">
+        <img src={image}/>
+      </div>
+      <div className="bg-white-400">
+        <p className="">{title}</p>
+        <p className="text-xs">{japaneseTitle}</p>
+        <p className="text-xs">{year}</p>
+        <p className="text-xs">{ep}</p>
+      </div>
+    </div>
+    )
+  };
+  
+
   return (
     <>
       <Head>
@@ -32,57 +58,9 @@ const Home: NextPage = () => {
         <div className="flex gap-4 mt-5">
           <div className="bg-red-400 w-48 text-center">
             <h1>Trending Anime</h1>
-
-            <div className="flex bg-orange-400 p-2">
-              <div className="bg-blue-400 w-1/3 mr-2">
-                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
-              </div>
-              <div className="bg-white-400">
-                <p className="">Cowboy Bebop</p>
-                <p className="text-xs">カウボーイビバップ</p>
-              </div>
-            </div>
-
-            <div className="flex bg-orange-400 p-2">
-              <div className="bg-blue-400 w-1/3 mr-2">
-                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
-              </div>
-              <div className="bg-white-400">
-                <p className="">Cowboy Bebop</p>
-                <p className="text-xs">カウボーイビバップ</p>
-              </div>
-            </div>
-
-            <div className="flex bg-orange-400 p-2">
-              <div className="bg-blue-400 w-1/3 mr-2">
-                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
-              </div>
-              <div className="bg-white-400">
-                <p className="">Cowboy Bebop</p>
-                <p className="text-xs">カウボーイビバップ</p>
-              </div>
-            </div>
-            
-            <div className="flex bg-orange-400 p-2">
-              <div className="bg-blue-400 w-1/3 mr-2">
-                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
-              </div>
-              <div className="bg-white-400">
-                <p className="">Cowboy Bebop</p>
-                <p className="text-xs">カウボーイビバップ</p>
-              </div>
-            </div>
-
-            <div className="flex bg-orange-400 p-2">
-              <div className="bg-blue-400 w-1/3 mr-2">
-                <img src="https://cdn.myanimelist.net/images/anime/4/19644.jpg"/>
-              </div>
-              <div className="bg-white-400">
-                <p className="">Cowboy Bebop</p>
-                <p className="text-xs">カウボーイビバップ</p>
-              </div>
-            </div>
+            {props.topAnime.data.map(animeCardMapper)}
           </div>
+
           <div className="bg-yellow-400 w-48 text-center">
             <h1>Trending Upcoming Anime</h1>
 
@@ -198,5 +176,16 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+
+export const getStaticProps = async () => {
+  const res = await fetch('https://api.jikan.moe/v4/top/anime?limit=5');
+  const topAnime = await res.json();
+  return {
+    props: {
+      topAnime
+    }
+  }
+}
 
 export default Home;
