@@ -68,7 +68,7 @@ const Home: NextPage = (props: any) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const resFavorite = await fetch('https://api.jikan.moe/v4/top/anime?limit=5&filter=favorite');
   const resPopular = await fetch('https://api.jikan.moe/v4/top/anime?limit=5?&ilter=bypopularity');
   const resUpcoming = await fetch('https://api.jikan.moe/v4/top/anime?limit=5&filter=upcoming');
